@@ -1,0 +1,124 @@
+.bg-form {
+	background-color: rgba(0, 34, 114, 0.65);
+	background-image: linear-gradient(0deg, rgb(19, 85, 158) 30%, rgba(19, 85, 158, 0) 65%, rgba(19, 85, 158, 0) 0px, transparent),
+		linear-gradient(-241deg, rgb(24, 32, 126) 6%, rgba(24, 32, 126, 0.8) 16%, rgba(255, 255, 255, 0) 57%, transparent),
+		linear-gradient(18deg, rgb(3, 88, 161) 20%, rgb(32, 141, 186) 60%, rgb(113, 137, 178) 75%, rgb(10, 20, 110) 93%);
+	border-radius: 15px 15px 0px 0px;
+	padding: 5px 32px 30px;
+	color: $colorWhite;
+}
+
+.form-flex {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin: 0 auto;
+	margin-bottom: 15px;
+
+	@include mediaa(maxmd) {
+		flex-wrap: wrap;
+	}
+
+	& .form-group {
+		width: 100%;
+		margin: 5px 0px 0px;
+
+		@include mediaa(minmd) {
+			margin-right: 10px;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		& label {
+			color: rgb(255, 255, 255);
+			display: block;
+			margin: 0px 10px 5px;
+		}
+
+		& .form-control {
+			box-sizing: border-box;
+			color: rgb(0, 34, 114);
+			font-size: 2rem;
+			height: 60px;
+			padding-left: 20px;
+			width: 100%;
+			background: rgb(255, 255, 255);
+			border-width: 0px;
+			border-radius: 10px;
+		}
+
+		& input[type="text" i] {
+			padding: 1px 2px;
+		}
+	}
+
+	img {
+		max-height: 55px;
+		margin-top: 25px;
+
+		@include mediaa(minmd) {
+			margin-right: 10px;
+			margin-top: 0;
+		}
+	}
+}
+
+.col-amount {
+	display: flex;
+	margin: 0 0 20px auto;
+	justify-content: center;
+	color: $colorWhite;
+
+	@include mediaa(minsm) {
+		margin: 0 auto 20px;
+	}
+
+	& .converterresult {
+		&-conversionFrom {
+			font-size: 24px;
+		}
+
+		&-conversionTo {
+			display: flex;
+		}
+
+		&-toAmount {
+			font-size: calc(65.6429px);
+			line-height: calc(65.6429px);
+		}
+
+		&-toCurrency {
+			font-size: calc(21.881px);
+			line-height: normal;
+			padding-bottom: 4px;
+			margin-top: 4px;
+			padding-left: 12px;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+		}
+
+		& .fromAmount {
+			padding-right: 5px;
+		}
+	}
+
+	.info-second {
+		font-size: 18px;
+		font-weight: bold;
+		text-align: center;
+
+		@include mediaa(minsm) {
+			margin: 10px 0px;
+		}
+
+		& span {
+			margin-right: 5px;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
