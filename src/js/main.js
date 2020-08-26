@@ -8,7 +8,7 @@ require.config({
 		],
 		popper: 'jsvendor/popper',
 		bootstrap: 'jsvendor/bootstrap',
-		CurrencyCalc: 'CurrencyCalc'
+		currencycalc: 'currencycalc'
 	},
 	shim: {
 		popper: {
@@ -27,6 +27,6 @@ require(['popper'], function (Popper) {
 	require(['bootstrap']);
 });
 
-define(['jquery', 'bootstrap', 'CurrencyCalc'], function ($) {
+define(['jquery', 'bootstrap', 'currencycalc'], function ($) {
 	//menu hover
 });

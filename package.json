@@ -1,5 +1,5 @@
 {
-	"name": "CurrencyCalc",
+	"name": "currencycalc",
 	"version": "1.0.1",
 	"description": "devDependencies require.js: CurrencyCalc",
 	"main": "gulp webpack project CurrencyCalc",
@@ -88,7 +88,7 @@
 		"eslint-plugin-prettier": "^3.1.1",
 		"eslint-plugin-promise": "^4.2.1",
 		"eslint-plugin-react": "^7.16.0",
-		"eslint-plugin-react-hooks": "^4.0.8",
+		"eslint-plugin-react-hooks": "^4.1.0",
 		"eslint-plugin-standard": "^4.0.0",
 		"event-stream": "^4.0.1",
 		"fancy-log": "^1.3.3",

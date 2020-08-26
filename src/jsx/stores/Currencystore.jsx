@@ -17,7 +17,7 @@ class Currencystore {
 
 	@observable toCurrencyValues = [];
 
-	@observable amount = 0;
+	@observable amount = '';
 
 	@observable conversionRate = 0;
 
@@ -110,7 +110,12 @@ class Currencystore {
 
 	@action handleAmount = (e) => {
 		e.preventDefault();
-		this.amount = e.target.value;
+		const val = e.target.value;
+		if (e.target.validity.valid) {
+			this.amount = e.target.value;
+		} else if (val === '' || val === '-') {
+			this.amount = null;
+		}
 	};
 
 	@computed get calculate() {

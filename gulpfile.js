@@ -88,7 +88,7 @@ const config = {
 	cssout: `${src}css/`,
 	distcss: `${dist}css/`,
 	diststylefile: `${dist}**/style.css`,
-	jsin: [`${src}js/**/*.js`, `!${src}js/jsvendor/**/*`, `!${src}js/CurrencyCalc.js`],
+	jsin: [`${src}js/**/*.js`, `!${src}js/jsvendor/**/*`, `!${src}js/currencycalc.js`],
 	jsxin: `${src}jsx/**/*.jsx`,
 	jsxout: `${src}js/`,
 	jsout: `${dist}js/`,

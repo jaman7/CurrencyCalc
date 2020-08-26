@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import uuid from 'react-uuid';
+// import { toJS } from 'mobx';
 
 @inject('Currencystore')
 @observer
@@ -13,6 +14,8 @@ class List extends Component {
 
 	render() {
 		const { list, option } = this.props;
+
+		// console.log(list);
 
 		return (
 			<>
@@ -40,7 +43,7 @@ class List extends Component {
 
 List.wrappedComponent.propTypes = {
 	option: PropTypes.bool.isRequired,
-	list: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.array])).isRequired
+	list: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
 };
 
 export default List;

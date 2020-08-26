@@ -27,7 +27,8 @@
 	"extends": [
 		"airbnb",
 		"prettier",
-		"prettier/react"
+		"prettier/react",
+		"plugin:react-hooks/recommended"
 	],
 	"plugins": [
 		"prettier"
@@ -56,6 +57,8 @@
 			"absolute-first"
 		],
 		"import/no-amd": 0,
+		// "react-hooks/rules-of-hooks": "error",
+		// "react-hooks/exhaustive-deps": "warn",
 		"jsx-a11y/no-static-element-interactions": [
 			"error",
 			{
