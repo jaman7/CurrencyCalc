@@ -102,25 +102,37 @@
 
 		&-conversionTo {
 			display: flex;
+			align-items: baseline;
+
+			& span {
+				line-height: initial;
+				margin-right: 5px;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+
+		&-conversion__1 {
+			display: flex;
+			align-items: baseline;
+
+			& span {
+				margin-left: 5px;
+
+				&:first-child {
+					margin-left: 0;
+				}
+			}
 		}
 
 		&-toAmount {
 			@include fluid-type(24px, 65px);
-			@include fluid-type(24px, 65px, line-height);
+			//@include fluid-type(24px, 65px, line-height);
 		}
 
 		&-toCurrency {
 			@include fluid-type(18px, 22px);
-			padding-bottom: 4px;
-			margin-top: 4px;
-			padding-left: 12px;
-			display: flex;
-			justify-content: center;
-			align-items: flex-end;
-
-			@include mediaa(maxsm) {
-				padding-bottom: 0;
-			}
 		}
 
 		& .fromAmount {

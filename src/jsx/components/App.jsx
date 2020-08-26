@@ -16,6 +16,16 @@ class App extends Component {
 	render() {
 		const { Currencystore } = this.props;
 
+		const flagFrom =
+			Currencystore.CurrencyQuery.length > 0
+				? `ml-1 currency-flag currency-flag-${Currencystore.CurrencyQueryfrom.toLowerCase()}`
+				: '';
+
+		const flagTo =
+			Currencystore.CurrencyQuery.length > 0
+				? `ml-1 currency-flag currency-flag-${Currencystore.CurrencyQuery.toLowerCase()}`
+				: '';
+
 		return (
 			<div className="container bg-form">
 				<div className="row">
@@ -29,6 +39,7 @@ class App extends Component {
 							<div className="converterresult-conversionFrom">
 								<Span text={Currencystore.amount} elemClass="fromAmount" />
 								<Span text={Currencystore.CurrencyQueryfrom} />
+								<Span elemClass={flagFrom} />
 								<Span text="=" />
 							</div>
 
@@ -41,16 +52,19 @@ class App extends Component {
 									text={Currencystore.CurrencyQuery}
 									elemClass="converterresult-toCurrency"
 								/>
+								<Span elemClass={flagTo} />
 							</div>
 						</div>
 					</div>
 					<div className="col-12 col-amount">
-						<div className="info-second">
+						<div className="converterresult-conversion__1">
 							<Span text="1" />
 							<Span text={Currencystore.CurrencyQueryfrom} />
+							<Span elemClass={flagFrom} />
 							<Span text="=" />
 							<Span text={Currencystore.conversionRate} />
 							<Span text={Currencystore.CurrencyQuery} />
+							<Span elemClass={flagTo} />
 						</div>
 					</div>
 				</div>
