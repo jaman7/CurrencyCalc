@@ -2,6 +2,7 @@
 import React from 'react';
 import { toJS, computed, observable, action, configure, runInAction } from 'mobx';
 import axios from 'axios';
+import { CURRENCIES } from './exports';
 
 axios.defaults.baseURL = 'https://api.exchangeratesapi.io';
 axios.defaults.responseType = 'json';
@@ -11,6 +12,8 @@ configure({
 });
 
 class Currencystore {
+	@observable historyData = {};
+
 	@observable list = [];
 
 	@observable toCurrencyKeys = [];
@@ -24,6 +27,8 @@ class Currencystore {
 	@observable CurrencyQueryfrom = 'EUR';
 
 	@observable CurrencyQuery = '';
+
+	@observable prevselecthist = 0;
 
 	@observable isloading = true;
 
@@ -70,6 +75,60 @@ class Currencystore {
 		}
 	}
 
+	@action async Retrievechart(To = '', count = 30) {
+		try {
+			this.isloading = true;
+			this.historyData = {};
+			const todayFormat = new Date().toISOString().slice(0, 10);
+			const today = new Date();
+			const date30DayFormat = new Date(
+				today.getFullYear(),
+				today.getMonth(),
+				today.getDate() - count
+			)
+				.toISOString()
+				.slice(0, 10);
+
+			const from = this.CurrencyQueryfrom;
+			let fromQ = '';
+			if (from === 'EUR') {
+				fromQ = '';
+			} else {
+				fromQ = from;
+			}
+
+			const to = this.CurrencyQuery.length === 0 ? To : this.CurrencyQuery;
+
+			const response = await axios.get(
+				`/history?start_at=${date30DayFormat}&end_at=${todayFormat}&base=${fromQ}`
+			);
+
+			const { rates } = response.data;
+
+			runInAction(() => {
+				if (response.status === 200) {
+					this.historyData = {
+						labels: Object.keys(rates).sort(),
+						datasets: [
+							{
+								data: Object.keys(rates)
+									.sort()
+									.map((key) => rates[key][to]),
+								label: `${from} to ${to}`,
+								fill: true,
+								backgroundColor: 'rgba(75,192,192,0.2)',
+								borderColor: 'rgba(75,192,192,1)'
+							}
+						]
+					};
+				}
+				this.isloading = false;
+			});
+		} catch (error) {
+			console.log('err');
+		}
+	}
+
 	@action async Retrievelists() {
 		try {
 			this.isloading = true;
@@ -95,6 +154,10 @@ class Currencystore {
 		const query = e.target.value;
 		this.CurrencyQueryfrom = query || 'EUR';
 		this.Retrieve(query);
+		if (this.CurrencyQuery.length > 0) {
+			this.CurrencyQuery = '';
+			this.prevselecthist = '';
+		}
 		console.log(`from: ${query}`);
 		return null;
 	};
@@ -105,6 +168,7 @@ class Currencystore {
 		this.CurrencyQuery = query;
 		const data = this.toCurrencyKeys.findIndex((item) => item === query);
 		this.conversionRate = this.toCurrencyValues[data];
+		this.Retrievechart(query);
 		return null;
 	};
 
@@ -116,6 +180,18 @@ class Currencystore {
 		} else if (val === '' || val === '-') {
 			this.amount = null;
 		}
+	};
+
+	@action handleHistoryFrom = (e) => {
+		e.preventDefault();
+		const value = parseInt(e.target.value, 10);
+		const val = this.checkIfNull(value) ? 30 : value;
+
+		// const val = value < 1 || 'undefined' ? 30 : value;
+		this.prevselecthist = val;
+		console.log(`select: ${val}`);
+		this.Retrievechart('', val);
+		return null;
 	};
 
 	@computed get calculate() {

@@ -1,0 +1,40 @@
+.container {
+	padding: 0 80px;
+	max-width: 1650px !important;
+
+	@include mediaa(maxmlg) {
+		padding: 0 45px;
+	}
+
+	@include mediaa(maxmd) {
+		padding: 0 15px;
+	}
+}
+
+.noscript-warning {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5050;
+	padding: 5px 0;
+	width: 100%;
+	background-color: red;
+	color: $colorWhite;
+	text-align: center;
+	font-weight: bold;
+	font-size: 120%;
+	font-family: $fontm;
+}
+
+.relative {
+	position: relative;
+	z-index: 1;
+}
+
+.canvas-container {
+	height: 40vh;
+}
+
+.label-selecthistory {
+	color: $colorFontNormal !important;
+}

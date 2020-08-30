@@ -28,8 +28,12 @@
 		width: 100%;
 		margin: 5px 0px 0px;
 
-		@include mediaa(minmd) {
+		@include mediaa(minlg) {
 			margin-right: 10px;
+		}
+
+		@include mediaa(maxmd) {
+			margin-right: 0;
 		}
 
 		&:last-child {
@@ -45,9 +49,7 @@
 		& .form-control {
 			box-sizing: border-box;
 			color: rgb(0, 34, 114);
-			// font-size: 2rem;
 			@include fluid-type(1rem, 2rem);
-			//height: 60px;
 			padding-left: 20px;
 			width: 100%;
 			background: rgb(255, 255, 255);
@@ -128,7 +130,6 @@
 
 		&-toAmount {
 			@include fluid-type(24px, 65px);
-			//@include fluid-type(24px, 65px, line-height);
 		}
 
 		&-toCurrency {
