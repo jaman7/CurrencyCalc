@@ -28,5 +28,5 @@ require(['popper'], function (Popper) {
 });
 
 define(['jquery', 'bootstrap', 'currencycalc'], function ($) {
-	//menu hover
+	console.log('currencycalc running');
 });

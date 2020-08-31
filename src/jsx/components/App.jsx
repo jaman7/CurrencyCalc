@@ -5,7 +5,7 @@ import { toJS } from 'mobx';
 import { Line } from 'react-chartjs-2';
 
 import Form from './Form';
-import Span from './html/Span';
+import Span from './Span';
 import SelectHistory from './selectHistory';
 
 @inject('Currencystore')
@@ -58,7 +58,7 @@ class App extends Component {
 
 								<div className="converterresult-conversionTo">
 									<Span
-										text={Currencystore.calculate}
+										text={parseFloat(Currencystore.calculate.toFixed(5))}
 										elemClass="converterresult-toAmount"
 									/>
 									<Span

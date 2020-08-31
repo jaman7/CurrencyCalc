@@ -53,6 +53,7 @@ const Form = inject('Currencystore')(
 							id="selectto"
 							type="text"
 							pattern="[0-9]*"
+							value={Currencystore.CurrencyQuery}
 							onChange={(e) => Currencystore.handleTo(e)}
 						>
 							<List
