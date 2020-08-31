@@ -13,27 +13,21 @@ class List extends Component {
 	}
 
 	render() {
-		const { list, option } = this.props;
+		const { list, option, txtdefault, txt } = this.props;
 
 		// console.log(list);
 
 		return (
 			<>
-				{option ? (
-					<option value="" key={uuid()}>
-						EUR
-					</option>
-				) : (
-					<option value="" key={uuid()}>
-						select Currency
-					</option>
-				)}
+				<option value="" key={uuid()}>
+					{txtdefault}
+				</option>
 
 				{list
 					.sort((a, b) => (a > b ? 1 : -1))
 					.map((item) => (
 						<option value={item} key={uuid()}>
-							{item}
+							{item} {txt}
 						</option>
 					))}
 			</>
@@ -42,8 +36,15 @@ class List extends Component {
 }
 
 List.wrappedComponent.propTypes = {
+	txt: PropTypes.string,
+	txtdefault: PropTypes.string,
 	option: PropTypes.bool.isRequired,
 	list: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired
+};
+
+List.wrappedComponent.defaultProps = {
+	txtdefault: '',
+	txt: ''
 };
 
 export default List;

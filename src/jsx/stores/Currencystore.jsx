@@ -81,6 +81,7 @@ class Currencystore {
 			this.historyData = {};
 			const todayFormat = new Date().toISOString().slice(0, 10);
 			const today = new Date();
+
 			const date30DayFormat = new Date(
 				today.getFullYear(),
 				today.getMonth(),
@@ -117,7 +118,7 @@ class Currencystore {
 								label: `${from} to ${to}`,
 								fill: true,
 								backgroundColor: 'rgba(75,192,192,0.2)',
-								borderColor: 'rgba(75,192,192,1)'
+								borderColor: 'rgba(0, 34, 114, 0.65)'
 							}
 						]
 					};
@@ -158,7 +159,6 @@ class Currencystore {
 			this.CurrencyQuery = '';
 			this.prevselecthist = '';
 		}
-		console.log(`from: ${query}`);
 		return null;
 	};
 
@@ -186,10 +186,7 @@ class Currencystore {
 		e.preventDefault();
 		const value = parseInt(e.target.value, 10);
 		const val = this.checkIfNull(value) ? 30 : value;
-
-		// const val = value < 1 || 'undefined' ? 30 : value;
 		this.prevselecthist = val;
-		console.log(`select: ${val}`);
 		this.Retrievechart('', val);
 		return null;
 	};

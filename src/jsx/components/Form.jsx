@@ -37,7 +37,7 @@ const Form = inject('Currencystore')(
 							pattern="[0-9]*"
 							onChange={(e) => Currencystore.handleFrom(e)}
 						>
-							<List option list={Currencystore.list} />
+							<List option list={Currencystore.list} txtdefault="EUR" />
 						</select>
 					</label>
 				</div>
@@ -55,7 +55,11 @@ const Form = inject('Currencystore')(
 							pattern="[0-9]*"
 							onChange={(e) => Currencystore.handleTo(e)}
 						>
-							<List option={false} list={Currencystore.toCurrencyKeys} />
+							<List
+								option={false}
+								list={Currencystore.toCurrencyKeys}
+								txtdefault="select Currency"
+							/>
 						</select>
 					</label>
 				</div>

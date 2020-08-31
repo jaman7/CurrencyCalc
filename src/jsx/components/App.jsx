@@ -94,7 +94,10 @@ class App extends Component {
 											data={toJS(Currencystore.historyData)}
 											options={{
 												responsive: true,
-												maintainAspectRatio: false
+												maintainAspectRatio: false,
+												animation: {
+													duration: 800
+												}
 											}}
 										/>
 									</article>

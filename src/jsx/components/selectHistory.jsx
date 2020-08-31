@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
-import uuid from 'react-uuid';
+// import uuid from 'react-uuid';
+import List from './List';
 
 const SelectHistory = inject('Currencystore')(
 	observer((props) => {
@@ -25,15 +26,12 @@ const SelectHistory = inject('Currencystore')(
 								value={selectState}
 								onChange={(e) => Currencystore.handleHistoryFrom(e)}
 							>
-								<option value="" key={uuid()}>
-									30 days default
-								</option>
-
-								{historylist.map((item) => (
-									<option value={item} key={uuid()}>
-										{item} days
-									</option>
-								))}
+								<List
+									option={false}
+									list={historylist}
+									txtdefault="30 days default"
+									txt="days"
+								/>
 							</select>
 						</label>
 					</div>
