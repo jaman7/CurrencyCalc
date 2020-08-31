@@ -19,11 +19,6 @@ class App extends Component {
 	render() {
 		const { Currencystore } = this.props;
 
-		// const To = Currencystore.CurrencyQuery;
-		// Currencystore.Test(To);
-
-		console.log(`query: ${Currencystore.CurrencyQuery}`);
-
 		const flagFrom =
 			Currencystore.CurrencyQueryfrom.length > 0
 				? `ml-1 currency-flag currency-flag-${Currencystore.CurrencyQueryfrom.toLowerCase()}`
@@ -35,8 +30,6 @@ class App extends Component {
 				: '';
 
 		const queryToToEmpty = Currencystore.CurrencyQuery.length > 0;
-
-		// const historylist = [10, 20, 30, 60, 120, 180, 364];
 
 		return (
 			<>

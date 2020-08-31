@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
-// import uuid from 'react-uuid';
 import List from './List';
 
 const SelectHistory = inject('Currencystore')(
@@ -11,6 +10,7 @@ const SelectHistory = inject('Currencystore')(
 		const selectState = Currencystore.prevselecthist === '' ? '' : Currencystore.prevselecthist;
 
 		const historylist = [10, 20, 30, 60, 120, 180, 364];
+
 		return (
 			<div className="col-12">
 				<form className="form-flex py-3">

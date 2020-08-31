@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import uuid from 'react-uuid';
-// import { toJS } from 'mobx';
 
 @inject('Currencystore')
 @observer
@@ -14,8 +13,6 @@ class List extends Component {
 
 	render() {
 		const { list, option, txtdefault, txt } = this.props;
-
-		// console.log(list);
 
 		return (
 			<>
