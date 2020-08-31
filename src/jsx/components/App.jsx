@@ -34,7 +34,7 @@ class App extends Component {
 				? `ml-1 currency-flag currency-flag-${Currencystore.CurrencyQuery.toLowerCase()}`
 				: '';
 
-		const queryToEmpty = Currencystore.CurrencyQuery.length > 0;
+		const queryToToEmpty = Currencystore.CurrencyQuery.length > 0;
 
 		// const historylist = [10, 20, 30, 60, 120, 180, 364];
 
@@ -84,7 +84,7 @@ class App extends Component {
 				</div>
 				<div className="container">
 					<div className="row">
-						{queryToEmpty && (
+						{queryToToEmpty && (
 							<>
 								<SelectHistory />
 
