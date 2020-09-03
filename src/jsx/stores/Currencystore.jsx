@@ -36,10 +36,6 @@ class Currencystore {
 
 	@observable errors = false;
 
-	@action findIndex = (currentid) => {
-		return this.heros.findIndex((item) => item.id === currentid);
-	};
-
 	@action checkErrAndTextLen = (err, text) => {
 		if ((text && text.trim().length) || err) {
 			return true;
