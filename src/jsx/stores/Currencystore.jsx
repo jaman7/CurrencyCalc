@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { toJS, computed, observable, action, configure, runInAction } from 'mobx';
 import axios from 'axios';
