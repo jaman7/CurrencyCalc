@@ -1,6 +1,8 @@
 # sample CurrencyCalc React
 Sample CurrencyCalc React/Mobx app.
 
+Demo: https://jsdevpro.pl/currencycalc/
+
 ## Installation:
 
 ## Use git clone.
